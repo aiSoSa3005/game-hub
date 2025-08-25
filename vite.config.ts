@@ -11,4 +11,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      "/ftg": {
+        target: "https://www.freetogame.com",
+        changeOrigin: true,
+        rewrite: (p) => p.replace(/^\/ftg/, ""),
+      },
+    },
+  },
 });

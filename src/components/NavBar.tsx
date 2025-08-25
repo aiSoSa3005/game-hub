@@ -3,7 +3,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const NavBar = () => {
   return (
-    <div className="flex gap-2 px-1 py-1 justify-between">
+    <div className="flex gap-2 px-1 py-4 justify-between">
       <GrCube color="black" size={30} />
 
       <button>
