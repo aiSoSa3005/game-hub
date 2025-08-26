@@ -5,9 +5,10 @@ const NavBar = () => {
     <div className="flex gap-2 px-1 py-4 justify-between bg-white dark:bg-[#151515]">
       <img src="/logo-rawgio.webp" alt="" className="w-12 h-auto" />
 
-      <button>
+      <div className="flex gap-2 items-center">
         <ThemeToggle />
-      </button>
+        <p>Dark mode</p>
+      </div>
     </div>
   );
 };

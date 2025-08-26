@@ -7,13 +7,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* body {
-  padding: 2rem;
-} */
 /* Chrome / Edge / Safari */
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 @theme inline {

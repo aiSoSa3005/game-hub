@@ -6,11 +6,11 @@ import NavBar from "./components/NavBar";
 function App() {
   return (
     <>
-      <div className="grid grid-cols-[1fr_4fr] grid-rows-[auto_1fr] h-screen bg-white ">
+      <div className="scrollbar-hide  grid grid-cols-[1fr_4fr] grid-rows-[auto_1fr] h-screen bg-white ">
         <nav className="col-span-2 ">
           <NavBar />
         </nav>
-        <aside className="hidden lg:col-span-1 lg:bg-white lg:block lg:dark:bg-[#141414]">
+        <aside className="hidden lg:p-4 md:p-4 lg:col-span-1 lg:bg-white lg:block lg:dark:bg-[#141414]">
           <GenreList />
         </aside>
         <main className=" col-span-2 lg:col-span-1  bg-white dark:bg-[#141414]">
