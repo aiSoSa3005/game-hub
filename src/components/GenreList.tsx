@@ -1,4 +1,5 @@
 import { useGenre } from "@/hooks/useGenre";
+import { Loader2 } from "lucide-react";
 
 const GenreList = () => {
   const { genres, isLoading, error } = useGenre();
@@ -19,6 +20,10 @@ const GenreList = () => {
     Shooter: "/genrebg/shooter-logo.jpg",
     Strategy: "/genrebg/strategy-logo.jpg",
   };
+
+  if (isLoading)
+    return <Loader2 className="h-6 w-6 animate-spin text-gray-500" />;
+  if (error) return null;
   return (
     <ul className="">
       {genres.map((g) => (
