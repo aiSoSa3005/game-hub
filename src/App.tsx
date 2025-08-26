@@ -5,14 +5,12 @@ import NavBar from "./components/NavBar";
 function App() {
   return (
     <>
-      <div className="grid grid-cols-2 grid-rows-[auto_1fr] h-screen bg-white ">
+      <div className="grid grid-cols-[1fr_4fr] grid-rows-[auto_1fr] h-screen bg-white ">
         <nav className="col-span-2 ">
           <NavBar />
         </nav>
-        <aside className="hidden lg:bg-yellow-600 lg:block lg:dark:bg-blue-200">
-          Aside
-        </aside>
-        <main className="bg-gray-300 col-span-2 lg:col-span-1 dark:bg-pink-500">
+        <aside className="hidden lg:col-span-1 lg:bg-white lg:block lg:dark:bg-[#141414]"></aside>
+        <main className=" col-span-2 lg:col-span-1  bg-white dark:bg-[#141414]">
           <GameGrid />
         </main>
       </div>

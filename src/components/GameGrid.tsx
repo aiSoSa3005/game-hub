@@ -1,4 +1,5 @@
 import { useGames } from "@/hooks/useGames";
+import GameCard from "./GameCard";
 
 const GameGrid = () => {
   const { games, error } = useGames();
@@ -6,13 +7,11 @@ const GameGrid = () => {
   return (
     <>
       {error && <p>{error}</p>}
-      <ul>
+      <div className="grid grid-cols-1 justify-center p-4 md:grid-cols-2  lg:grid-cols-4 gap-3 ">
         {games.map((game) => (
-          <li className="text-black" key={game.id}>
-            {game.title}
-          </li>
+          <GameCard game={game} />
         ))}
-      </ul>
+      </div>
     </>
   );
 };
