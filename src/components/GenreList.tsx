@@ -1,19 +1,21 @@
 import { useGenre } from "@/hooks/useGenre";
 import { Loader2 } from "lucide-react";
-
-const GenreList = () => {
+interface Props {
+  onSelectGenre: (genre: string) => void;
+}
+const GenreList = ({ onSelectGenre }: Props) => {
   const { genres, isLoading, error } = useGenre();
   type genre =
-    | "ARPG"
-    | "Action RPG"
+    | "Fighting"
+    | "Action"
     | "Battle Royale"
     | "MMOARPG"
     | "MMORPG"
     | "Shooter"
     | "Strategy";
   const genreImageMap: Record<genre, string> = {
-    ARPG: "/genrebg/arpg-logo.jpg",
-    "Action RPG": "/genrebg/logo-action.png",
+    Fighting: "/genrebg/arpg-logo.jpg",
+    Action: "/genrebg/logo-action.png",
     "Battle Royale": "/genrebg/battleroyale-logo.webp",
     MMOARPG: "/genrebg/mmoarpg-logo.jpg",
     MMORPG: "/genrebg/mmorpg-logo.png",
@@ -33,7 +35,9 @@ const GenreList = () => {
             alt={g}
             className="w-16 h-16 object-cover object-center rounded-xl"
           />
-          <p className="text-lg">{g}</p>
+          <button onClick={() => onSelectGenre(g)}>
+            <p className="text-lg hover:underline">{g}</p>
+          </button>
         </li>
       ))}
     </ul>

@@ -22,7 +22,7 @@ export const useGames = () => {
       .get<Game[]>("/games", { signal: controller.signal })
       .then((res) => {
         setIsLoading(false);
-        setGames(res.data.slice(0, 20));
+        setGames(res.data.slice(0, 50));
       })
       .catch((err) => {
         if (err instanceof CanceledError) return;
