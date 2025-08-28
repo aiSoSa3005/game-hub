@@ -2,8 +2,9 @@ import { useGenre } from "@/hooks/useGenre";
 import { Loader2 } from "lucide-react";
 interface Props {
   onSelectGenre: (genre: string) => void;
+  selectedGenre: string;
 }
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { genres, isLoading, error } = useGenre();
   type genre =
     | "Fighting"
@@ -36,7 +37,13 @@ const GenreList = ({ onSelectGenre }: Props) => {
             className="w-16 h-16 object-cover object-center rounded-xl"
           />
           <button onClick={() => onSelectGenre(g)}>
-            <p className="text-lg hover:underline">{g}</p>
+            <p
+              className={`text-lg hover:underline ${
+                g === selectedGenre ? "font-bold" : "font-normal"
+              }`}
+            >
+              {g}
+            </p>
           </button>
         </li>
       ))}

@@ -13,7 +13,10 @@ function App() {
           <NavBar />
         </nav>
         <aside className="hidden lg:p-4 md:p-4 lg:col-span-1 lg:bg-white lg:block lg:dark:bg-[#141414]">
-          <GenreList onSelectGenre={(g) => setSelectedgenre(g)} />
+          <GenreList
+            selectedGenre={selectedGenre}
+            onSelectGenre={(g) => setSelectedgenre(g)}
+          />
         </aside>
         <main className=" col-span-2 lg:col-span-1  bg-white dark:bg-[#141414]">
           <GameGrid selectedGenre={selectedGenre} />
