@@ -6,15 +6,33 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const PlatformSelector = () => {
+import { useState } from "react";
+
+interface Props {
+  onSelect: (platform: string) => void;
+  platforms: string[] | undefined;
+}
+
+const PlatformSelector = ({ onSelect, platforms }: Props) => {
+  const [platform, setPlatform] = useState("");
   return (
-    <Select>
+    <Select
+      value={platform}
+      onValueChange={(p) => {
+        setPlatform(p);
+        onSelect(p);
+      }}
+    >
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Platforms" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="light">PC (Windows)</SelectItem>
-        <SelectItem value="dark">Web Browser</SelectItem>
+        {platforms &&
+          platforms.map((p) => (
+            <SelectItem key={p} value={p}>
+              {p}
+            </SelectItem>
+          ))}
       </SelectContent>
     </Select>
   );

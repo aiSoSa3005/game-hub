@@ -3,9 +3,9 @@ import { Loader2 } from "lucide-react";
 interface Props {
   onSelectGenre: (genre: string) => void;
   selectedGenre: string;
+  genres: string[] | undefined;
 }
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { genres, isLoading, error } = useGenre();
+const GenreList = ({ onSelectGenre, selectedGenre, genres }: Props) => {
   type genre =
     | "Fighting"
     | "Action"
@@ -24,29 +24,27 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
     Strategy: "/genrebg/strategy-logo.jpg",
   };
 
-  if (isLoading)
-    return <Loader2 className="h-6 w-6 animate-spin text-gray-500" />;
-  if (error) return null;
   return (
     <ul className="">
-      {genres.map((g) => (
-        <li key={g} className="flex items-center space-x-2 mb-4">
-          <img
-            src={genreImageMap[g as genre]}
-            alt={g}
-            className="w-16 h-16 object-cover object-center rounded-xl"
-          />
-          <button onClick={() => onSelectGenre(g)}>
-            <p
-              className={`text-lg hover:underline ${
-                g === selectedGenre ? "font-bold" : "font-normal"
-              }`}
-            >
-              {g}
-            </p>
-          </button>
-        </li>
-      ))}
+      {genres &&
+        genres.map((g) => (
+          <li key={g} className="flex items-center space-x-2 mb-4">
+            <img
+              src={genreImageMap[g as genre]}
+              alt={g}
+              className="w-16 h-16 object-cover object-center rounded-xl"
+            />
+            <button onClick={() => onSelectGenre(g)}>
+              <p
+                className={`text-lg hover:underline ${
+                  g === selectedGenre ? "font-bold" : "font-normal"
+                }`}
+              >
+                {g}
+              </p>
+            </button>
+          </li>
+        ))}
     </ul>
   );
 };
