@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import apiClient from "@/services/api-client";
-import { CanceledError } from "axios";
+import axios from "axios";
 import { fetchGames, type GameParams } from "@/api/ftg";
 
 export interface Game {
@@ -13,19 +12,35 @@ export interface Game {
 
 export const useGames = (params: GameParams) => {
   const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const controller = new AbortController();
     setIsLoading(true);
+    setError(null);
+
     fetchGames(params, controller.signal)
-      .then((res) => setGames(res))
-      .catch((err) => setError(err))
+      .then(setGames)
+      .catch((err: unknown) => {
+        if (
+          (err as any)?.name === "AbortError" ||
+          (axios.isAxiosError(err) && err.code === "ERR_CANCELED")
+        )
+          return;
+
+        if (axios.isAxiosError(err)) {
+          setError(err?.message);
+        } else if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Errore sconosciuto");
+        }
+      })
       .finally(() => setIsLoading(false));
 
     return () => controller.abort();
-  }, []);
+  }, [params.genre, params.platform]);
 
   return { games, error, isLoading };
 };

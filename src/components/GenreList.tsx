@@ -1,5 +1,3 @@
-import { useGenre } from "@/hooks/useGenre";
-import { Loader2 } from "lucide-react";
 interface Props {
   onSelectGenre: (genre: string) => void;
   selectedGenre: string;

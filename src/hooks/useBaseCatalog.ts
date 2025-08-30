@@ -17,7 +17,7 @@ export const useBaseCatolog = () => {
       .finally(() => setIsLoading(false));
 
     return () => ac.abort();
-  }, [baseGames]);
+  }, []);
 
   return { baseGames, error, isLoading };
 };

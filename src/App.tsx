@@ -37,7 +37,11 @@ function App() {
             platforms={platforms}
             onSelect={(p) => setSelectedPlatform(p)}
           />
-          <GameGrid games={games} />
+          {error ? (
+            <p>{error}</p>
+          ) : (
+            <GameGrid error={error} loading={isLoading} games={games} />
+          )}
         </main>
       </div>
     </>

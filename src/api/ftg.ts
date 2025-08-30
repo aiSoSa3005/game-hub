@@ -15,7 +15,20 @@ function platformToApi(p?: string) {
 }
 
 function genreToApi(g?: string) {
-  return g ? g.toLowerCase() : undefined;
+  if (!g) return undefined;
+  const MAP: Record<string, string> = {
+    "Battle Royale": "battle-royale",
+    "Action RPG": "action-rpg",
+    "Third Person": "third-person",
+    MMOARPG: "mmoarpg",
+    MMORPG: "mmorpg",
+    Shooter: "shooter",
+    Strategy: "strategy",
+    Fighting: "fighting",
+    Action: "action",
+  };
+
+  return MAP[g] ?? g.toLowerCase().replace(/\s+/g, "-");
 }
 export function getGenres(baseGames: Game[]): string[] | undefined {
   let genres = new Set<string>();
@@ -39,8 +52,8 @@ export async function fetchGames(params: GameParams, signal: AbortSignal) {
   const g = genreToApi(params.genre);
   const p = platformToApi(params.platform);
 
-  if (g) query.g = query.genre = g;
-  if (p) query.p = query.platform = p;
+  if (p) query.platform = p;
+  if (g) query.category = g;
 
   const { data } = await apiClient.get<Game[]>("/games", {
     params: query,
