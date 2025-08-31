@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-      <div className="scrollbar-hide  grid grid-cols-[1fr_4fr] grid-rows-[auto_1fr] h-screen bg-white dark:bg-[#141414] ">
+      <div className="scrollbar-hide  grid grid-cols-[1fr_5fr] xl:grid-cols-[1fr_6fr] grid-rows-[auto_1fr] h-screen bg-white dark:bg-[#141414] ">
         <nav className="col-span-2 mb-5">
           <NavBar />
         </nav>

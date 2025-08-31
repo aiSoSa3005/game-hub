@@ -18,7 +18,7 @@ const GameCard = ({ game }: Props) => {
   const platformIcons = iconsMap[game.platform as PlatformKey] || [];
 
   return (
-    <div className="flex flex-col rounded-xl lg:max-w-xs overflow-hidden bg-[#202020] transition-transform duration-300 hover:scale-105">
+    <div className="flex flex-col rounded-xl lg:max-w-xs xl:max-w-lg overflow-hidden bg-[#202020] transition-transform duration-300 hover:scale-105">
       <div className="w-full aspect-[16/9]">
         <img
           src={game.thumbnail}
