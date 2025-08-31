@@ -38,7 +38,7 @@ function App() {
             onSelect={(p) => setSelectedPlatform(p)}
           />
           {error ? (
-            <p>{error}</p>
+            <p className="font-semibold p-1 text-red-500">{error}</p>
           ) : (
             <GameGrid error={error} loading={isLoading} games={games} />
           )}

@@ -2,7 +2,13 @@ import useDarkMode from "../hooks/useDarkMode";
 import { Switch } from "@/components/ui/switch";
 
 export default function ThemeToggle() {
-  const { toggleDarkMode } = useDarkMode();
+  const { toggleDarkMode, isDarkMode } = useDarkMode();
 
-  return <Switch onClick={toggleDarkMode} className="" />;
+  return (
+    <Switch
+      checked={isDarkMode ? true : false}
+      onClick={toggleDarkMode}
+      className=""
+    />
+  );
 }

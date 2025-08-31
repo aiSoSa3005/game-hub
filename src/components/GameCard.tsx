@@ -35,7 +35,11 @@ const GameCard = ({ game }: Props) => {
 
         <div className="flex gap-2">
           {platformIcons.map((IconComponent, index) => (
-            <IconComponent key={index} className="text-gray-400 text-lg" />
+            <IconComponent
+              key={index}
+              className="text-gray-400 text-lg"
+              color="white"
+            />
           ))}
         </div>
       </div>

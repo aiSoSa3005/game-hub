@@ -55,10 +55,12 @@ export async function fetchGames(params: GameParams, signal: AbortSignal) {
   if (p) query.platform = p;
   if (g) query.category = g;
 
-  const { data } = await apiClient.get<Game[]>("/games", {
+  const response = await apiClient.get<Game[]>("/games", {
     params: query,
     signal,
   });
+
+  const data = Array.isArray(response.data) ? response.data : [];
 
   return data;
 }

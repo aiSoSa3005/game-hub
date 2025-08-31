@@ -21,7 +21,9 @@ export const useGames = (params: GameParams) => {
     setError(null);
 
     fetchGames(params, controller.signal)
-      .then(setGames)
+      .then((games) => {
+        setGames(games);
+      })
       .catch((err: unknown) => {
         if (
           (err as any)?.name === "AbortError" ||
@@ -29,13 +31,15 @@ export const useGames = (params: GameParams) => {
         )
           return;
 
-        if (axios.isAxiosError(err)) {
+        setGames([]);
+
+        /* if (axios.isAxiosError(err)) {
           setError(err?.message);
         } else if (err instanceof Error) {
           setError(err.message);
         } else {
           setError("Errore sconosciuto");
-        }
+        } */
       })
       .finally(() => setIsLoading(false));
 

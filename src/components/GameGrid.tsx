@@ -10,6 +10,10 @@ interface Props {
 }
 
 const GameGrid = ({ games, loading, error }: Props) => {
+  if (!games.length && !loading) {
+    return <div>no games!</div>;
+  }
+
   return (
     <>
       <div className="grid grid-cols-1 justify-center p-4 md:grid-cols-2 lg:grid-cols-4 gap-3">
