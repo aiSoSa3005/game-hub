@@ -11,7 +11,19 @@ const GenreList = ({ onSelectGenre, selectedGenre, genres }: Props) => {
     | "MMOARPG"
     | "MMORPG"
     | "Shooter"
-    | "Strategy";
+    | "Strategy"
+    | "ARPG"
+    | "Action RPG"
+    | "Card Game"
+    | "MOBA"
+    | "Action Game"
+    | "Social"
+    | "Sports"
+    | "RPG"
+    | "MMO"
+    | "Racing"
+    | "MMORPG"
+    | "Fantasy";
   const genreImageMap: Record<genre, string> = {
     Fighting: "/genrebg/arpg-logo.jpg",
     Action: "/genrebg/logo-action.png",
@@ -20,6 +32,17 @@ const GenreList = ({ onSelectGenre, selectedGenre, genres }: Props) => {
     MMORPG: "/genrebg/mmorpg-logo.png",
     Shooter: "/genrebg/shooter-logo.jpg",
     Strategy: "/genrebg/strategy-logo.jpg",
+    ARPG: "genrebg/anelli-arpg.webp",
+    "Action RPG": "/genrebg/anima-arpg.jpg",
+    "Card Game": "/genrebg/cardgame.png",
+    MOBA: "/genrebg/moba.jpg",
+    "Action Game": "/genrebg/action-logo.jpg",
+    Social: "/genrebg/social.jpg",
+    Sports: "/genrebg/sports.jpg",
+    RPG: "/genrebg/rpggame.avif",
+    MMO: "/genrebg/mmo.jpg",
+    Racing: "/genrebg/racing.avif",
+    Fantasy: "/genrebg/fantasy.jpg",
   };
 
   return (

@@ -21,22 +21,23 @@ function App() {
 
   return (
     <>
-      <div className="scrollbar-hide  grid grid-cols-[1fr_5fr] xl:grid-cols-[1fr_6fr] grid-rows-[auto_1fr] h-screen bg-white dark:bg-[#141414] ">
+      <div className="scrollbar-hide  grid grid-cols-[1fr_5fr] xl:grid-cols-[1fr_7fr] grid-rows-[auto_1fr] h-screen bg-white dark:bg-[#141414] ">
         <nav className="col-span-2 mb-5">
           <NavBar />
         </nav>
-        <aside className="hidden lg:p-4 md:p-4 lg:col-span-1 lg:bg-white lg:block lg:dark:bg-[#141414]">
+        <aside className="hidden lg:p-4  lg:col-span-1 lg:bg-white lg:block lg:dark:bg-[#141414]">
           <GenreList
             selectedGenre={selectedGenre}
             onSelectGenre={(g) => setSelectedgenre(g)}
             genres={genres}
           />
         </aside>
-        <main className=" col-span-2 lg:col-span-1  bg-white dark:bg-[#141414]">
+        <main className=" col-span-2 p-4 lg:col-span-1  bg-white dark:bg-[#141414] ">
           <PlatformSelector
             platforms={platforms}
             onSelect={(p) => setSelectedPlatform(p)}
           />
+
           {error ? (
             <p className="font-semibold p-1 text-red-500">{error}</p>
           ) : (
