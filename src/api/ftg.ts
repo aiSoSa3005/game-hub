@@ -5,6 +5,7 @@ export type GameParams = {
   genre: string;
   platform: string;
   search?: string;
+  sortBy?: string;
 };
 
 function platformToApi(p?: string) {
@@ -30,6 +31,10 @@ function genreToApi(g?: string) {
 
   return MAP[g] ?? g.toLowerCase().replace(/\s+/g, "-");
 }
+function sortByApi(g?: string) {
+  if (!g) return undefined;
+  return g.toLowerCase().replace(/\s+/g, "-");
+}
 export function getGenres(baseGames: Game[]): string[] | undefined {
   let genres = new Set<string>();
   for (const g of baseGames) {
@@ -47,13 +52,18 @@ export function getPlatforms(baseGames: Game[]): string[] | undefined {
   return Array.from(s).sort();
 }
 
+export function fetchBasegames() {
+  return apiClient.get<Game[]>("/games").then((res) => res.data);
+}
+
 export async function fetchGames(params: GameParams, signal: AbortSignal) {
   const query: Record<string, string> = {};
   const g = genreToApi(params.genre);
   const p = platformToApi(params.platform);
-
+  const c = sortByApi(params.sortBy);
   if (p) query.platform = p;
   if (g) query.category = g;
+  if (c) query["sort-by"] = c;
 
   const response = await apiClient.get<Game[]>("/games", {
     params: query,

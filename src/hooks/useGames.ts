@@ -32,19 +32,11 @@ export const useGames = (params: GameParams) => {
           return;
 
         setGames([]);
-
-        /* if (axios.isAxiosError(err)) {
-          setError(err?.message);
-        } else if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Errore sconosciuto");
-        } */
       })
       .finally(() => setIsLoading(false));
 
     return () => controller.abort();
-  }, [params.genre, params.platform]);
+  }, [params.genre, params.platform, params.sortBy]);
 
   return { games, error, isLoading };
 };

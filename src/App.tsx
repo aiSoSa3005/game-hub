@@ -7,17 +7,21 @@ import PlatformSelector from "./components/PlatformSelector";
 import { useGames } from "./hooks/useGames";
 import { useBaseCatolog } from "./hooks/useBaseCatalog";
 import { getGenres, getPlatforms } from "./api/ftg";
+import SortSelector from "./components/SortSelector";
 
 function App() {
   const [selectedGenre, setSelectedgenre] = useState("");
   const [selectedPlatfrom, setSelectedPlatform] = useState("");
+  const [selectedSortCategory, setSelectdsortCategory] = useState("");
   const { games, isLoading, error } = useGames({
     genre: selectedGenre,
     platform: selectedPlatfrom,
+    sortBy: selectedSortCategory,
   });
   const { baseGames } = useBaseCatolog();
   const genres = getGenres(baseGames);
   const platforms = getPlatforms(baseGames);
+  const visibleGames = games.length > 0 ? games : [];
 
   return (
     <>
@@ -33,15 +37,18 @@ function App() {
           />
         </aside>
         <main className=" col-span-2 p-4 lg:col-span-1  bg-white dark:bg-[#141414] ">
-          <PlatformSelector
-            platforms={platforms}
-            onSelect={(p) => setSelectedPlatform(p)}
-          />
+          <section className="ml-4 flex gap-3">
+            <PlatformSelector
+              platforms={platforms}
+              onSelect={(p) => setSelectedPlatform(p)}
+            />
+            <SortSelector onChange={(v) => setSelectdsortCategory(v)} />
+          </section>
 
           {error ? (
             <p className="font-semibold p-1 text-red-500">{error}</p>
           ) : (
-            <GameGrid error={error} loading={isLoading} games={games} />
+            <GameGrid error={error} loading={isLoading} games={visibleGames} />
           )}
         </main>
       </div>
