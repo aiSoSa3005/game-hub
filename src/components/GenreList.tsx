@@ -57,7 +57,7 @@ const GenreList = ({ onSelectGenre, selectedGenre, genres }: Props) => {
             />
             <button onClick={() => onSelectGenre(g)}>
               <p
-                className={`text-lg hover:underline ${
+                className={`text-lg xl:text-md whitespace-nowrap hover:underline ${
                   g === selectedGenre ? "font-bold" : "font-normal"
                 }`}
               >

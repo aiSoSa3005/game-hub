@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <div className="scrollbar-hide  grid grid-cols-[1fr_5fr] xl:grid-cols-[1fr_7fr] grid-rows-[auto_1fr] h-screen bg-white dark:bg-[#141414] ">
+      <div className="scrollbar-hide  grid grid-cols-[1fr_5fr] lg:grid-cols-[1fr_4fr] xl:grid-cols-[1fr_5fr] grid-rows-[auto_1fr] h-screen bg-white dark:bg-[#141414] ">
         <nav className="col-span-2 mb-5">
           <NavBar />
         </nav>
@@ -37,6 +37,9 @@ function App() {
           />
         </aside>
         <main className=" col-span-2 p-4 lg:col-span-1  bg-white dark:bg-[#141414] ">
+          <h1 className="font-bold lg:text-3xl p-4">
+            {selectedPlatfrom} {selectedGenre} Games{" "}
+          </h1>
           <section className="ml-4 flex gap-3">
             <PlatformSelector
               platforms={platforms}

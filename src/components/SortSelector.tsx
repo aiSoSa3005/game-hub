@@ -28,7 +28,7 @@ const SortSelector = ({ onChange }: Props) => {
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="relevance">Relevance</SelectItem>
-        <SelectItem value="release">Release date</SelectItem>
+        <SelectItem value="release date">Release date</SelectItem>
         <SelectItem value="alphabetical">Alphabetical</SelectItem>
         <SelectItem value="popularity">Popularity</SelectItem>
       </SelectContent>
