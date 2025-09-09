@@ -15,7 +15,7 @@ const InputSearch = ({ onSearch }: Props) => {
   }, [query]);
   return (
     <form
-      className="flex items-center h-[45px] gap-3 border-2 bg-[#3b3b3b] hover:bg-gray-400 transition-all duration-300 ease-in-out  rounded-2xl mx-auto w-full max-w-[900px] pl-2 "
+      className="flex items-center h-[45px] gap-3 border-2 bg-gray-300 hover:bg-gray-400  dark:bg-[#3b3b3b] dark:hover:bg-gray-400 transition-all duration-300 ease-in-out  rounded-2xl mx-auto w-full max-w-[900px] pl-2 "
       role="search"
       onSubmit={(e) => {
         e.preventDefault();
@@ -27,7 +27,7 @@ const InputSearch = ({ onSearch }: Props) => {
         </button>
       </div>
       <input
-        className="flex-1 focus:outline-none text-white "
+        className="flex-1 focus:outline-none text-gray-600 dark:text-white "
         type="search"
         placeholder="Search games"
         aria-label="Search games"
