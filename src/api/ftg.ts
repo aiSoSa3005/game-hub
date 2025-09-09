@@ -52,7 +52,7 @@ export function getPlatforms(baseGames: Game[]): string[] | undefined {
   return Array.from(s).sort();
 }
 
-export function fetchBasegames() {
+export async function fetchBasegames() {
   return apiClient.get<Game[]>("/games").then((res) => res.data);
 }
 
@@ -71,6 +71,12 @@ export async function fetchGames(params: GameParams, signal: AbortSignal) {
   });
 
   const data = Array.isArray(response.data) ? response.data : [];
+
+  if (data.length > 1 && params.search != "") {
+    return data.filter((g) =>
+      g.title.toLowerCase().includes(params.search?.toLowerCase()!)
+    );
+  }
 
   return data;
 }

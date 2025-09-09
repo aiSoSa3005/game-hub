@@ -36,7 +36,7 @@ export const useGames = (params: GameParams) => {
       .finally(() => setIsLoading(false));
 
     return () => controller.abort();
-  }, [params.genre, params.platform, params.sortBy]);
+  }, [params.genre, params.platform, params.sortBy, params.search]);
 
   return { games, error, isLoading };
 };

@@ -13,10 +13,12 @@ function App() {
   const [selectedGenre, setSelectedgenre] = useState("");
   const [selectedPlatfrom, setSelectedPlatform] = useState("");
   const [selectedSortCategory, setSelectdsortCategory] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const { games, isLoading, error } = useGames({
     genre: selectedGenre,
     platform: selectedPlatfrom,
     sortBy: selectedSortCategory,
+    search: searchQuery,
   });
   const { baseGames } = useBaseCatolog();
   const genres = getGenres(baseGames);
@@ -25,9 +27,9 @@ function App() {
 
   return (
     <>
-      <div className="scrollbar-hide  grid grid-cols-[1fr_5fr] lg:grid-cols-[1fr_4fr] xl:grid-cols-[1fr_5fr] grid-rows-[auto_1fr] h-screen bg-white dark:bg-[#141414] ">
+      <div className="scrollbar-hide p-2 grid grid-cols-[1fr_5fr] lg:grid-cols-[1fr_4fr] xl:grid-cols-[1fr_5fr] grid-rows-[auto_1fr] h-screen bg-white dark:bg-[#141414] ">
         <nav className="col-span-2 mb-5">
-          <NavBar />
+          <NavBar onSearch={(q) => setSearchQuery(q ?? "")} />
         </nav>
         <aside className="hidden lg:p-4  lg:col-span-1 lg:bg-white lg:block lg:dark:bg-[#141414]">
           <GenreList
