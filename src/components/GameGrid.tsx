@@ -11,7 +11,11 @@ interface Props {
 
 const GameGrid = ({ games, loading, error }: Props) => {
   if (!games.length && !loading) {
-    return <div>no games!</div>;
+    return (
+      <div className="flex items-center font-semibold justify-center text-2xl">
+        No games :({" "}
+      </div>
+    );
   }
 
   return (
