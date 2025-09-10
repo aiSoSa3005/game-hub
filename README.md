@@ -3,10 +3,7 @@
 Free-to-play games marketplace with search, filters, and dark mode.  
 Powered by the **[FreeToGame API](https://www.freetogame.com/api/)**.
 
-[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=000)](#)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=fff)](#)
-[![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=fff)](#)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind-3-06B6D4?logo=tailwindcss&logoColor=fff)](#)
+
 
 👉 **Live demo**: (https://game-hub-woad-xi.vercel.app/)
 
