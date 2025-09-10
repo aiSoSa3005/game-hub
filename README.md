@@ -25,15 +25,6 @@ Powered by the **[FreeToGame API](https://www.freetogame.com/api/)**.
 
 ---
 
-## 📸 Screenshots
-
-| Dark Mode | Light Mode |
-|-----------|------------|
-| ![Dark](public/screenshots/dark.png) | ![Light](public/screenshots/light.png) |
-
-_(replace `dark.png` and `light.png` with your screenshots inside `public/screenshots/`)_  
-
----
 
 ## Tech Stack
 
