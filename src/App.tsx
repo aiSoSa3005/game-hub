@@ -24,12 +24,21 @@ function App() {
   const genres = getGenres(baseGames);
   const platforms = getPlatforms(baseGames);
   const visibleGames = games.length > 0 ? games : [];
-
+  const onResetFilters = () => {
+    setSelectedgenre("");
+    setSelectedPlatform("");
+    setSelectdsortCategory("");
+    setSearchQuery("");
+    console.log("reset filters");
+  };
   return (
     <>
       <div className="w-screen p-2 grid grid-cols-[1fr_5fr] lg:grid-cols-[1fr_4fr] xl:grid-cols-[1fr_5fr] grid-rows-[auto_1fr] h-screen bg-white dark:bg-[#141414] ">
         <nav className="col-span-2 mb-5">
-          <NavBar onSearch={(q) => setSearchQuery(q ?? "")} />
+          <NavBar
+            onReset={onResetFilters}
+            onSearch={(q) => setSearchQuery(q ?? "")}
+          />
         </nav>
         <aside className="hidden lg:p-4  lg:col-span-1 lg:bg-white lg:block lg:dark:bg-[#141414]">
           <GenreList
