@@ -8,7 +8,7 @@ Powered by the **[FreeToGame API](https://www.freetogame.com/api/)**.
 [![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=fff)](#)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-3-06B6D4?logo=tailwindcss&logoColor=fff)](#)
 
-👉 **Live demo**: [[https://game-hub.vercel.app](https://game-hub.vercel.app)  ](https://game-hub-woad-xi.vercel.app/)
+👉 **Live demo**: (https://game-hub-woad-xi.vercel.app/)
 
 ---
 
