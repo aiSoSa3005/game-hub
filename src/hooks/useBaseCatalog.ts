@@ -1,4 +1,4 @@
-import { fetchBasegames, fetchGames, type GameParams } from "@/api/ftg";
+import { fetchBasegames } from "@/api/ftg";
 import { useEffect, useState } from "react";
 import type { Game } from "./useGames";
 
@@ -9,10 +9,6 @@ export const useBaseCatolog = () => {
   useEffect(() => {
     const ac = new AbortController();
     setIsLoading(true);
-    /*  const params: GameParams = {
-      genre: "",
-      platform: "",
-    }; */
 
     fetchBasegames()
       .then((data) => setBaseGames(data))
